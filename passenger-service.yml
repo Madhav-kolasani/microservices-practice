@@ -4,8 +4,20 @@ server:
 spring:
   application:
     name: passenger-service
-  config:
-    import: "optional:configserver:http://localhost:6609"
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/passenger_db
+    username: root
+    password: MySQL@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 eureka:
   client:
